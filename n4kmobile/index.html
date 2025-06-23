@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Italianno&family=Oswald:wght@200..700&display=swap");
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Oswald", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      /* overflow-x: hidden; */
+      /* overflow-y: hidden; */
+    }
+
+    .kontener_glowny {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      background-color: black;
+      background-image: url("../n4kmobile/img/IMG20250614152156.jpg");
+      background-position: center;
+      background-size: cover;
+      z-index: 0;
+    }
+
+    .kontener_glowny::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      background: #1c1c1c;
+      background: linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(0, 0, 0, 0.466) 100%
+      );
+      z-index: 1;
+    }
+
+    .pasek_gora {
+      width: 100%;
+      height: 70px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 100;
+      position: fixed;
+    }
+
+    .pasek_gora .logo {
+      margin-left: 50px;
+      font-size: 2rem;
+      letter-spacing: 3px;
+      font-weight: 100;
+      color: white;
+      text-shadow: 0 0 10px black;
+      font-style: italic;
+      margin-top: 15px;
+      position: relative;
+      z-index: 99;
+    }
+    .pasek_gora .logo span {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+
+      position: relative;
+
+      border: 4px solid yellowgreen;
+
+      transform: rotate(-45deg);
+    }
+    .pasek_gora .logo span h1 {
+      color: yellowgreen;
+      font-weight: 500;
+      font-style: normal;
+      font-size: 2.5rem;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+    .pasek_gora ul {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 50px;
+    }
+    .pasek_gora ul li {
+      list-style: none;
+    }
+    .pasek_gora ul li a {
+      text-decoration: none;
+      padding: 10px;
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+      color: white;
+      text-shadow: 0 0 10px black;
+      transition: 0.3s;
+    }
+    .pasek_gora ul li a:hover {
+      border-bottom: 2px solid yellowgreen;
+      background-color: rgba(153, 205, 50, 0.351);
+    }
+    .pasek_gora ul li a:focus {
+      border-bottom: 2px solid yellowgreen;
+      background-color: rgba(153, 205, 50, 0.351);
+    }
+
+    /* ------------------------------------------------------------------------------------ */
+    .tresc_promocja {
+      width: 800px;
+      height: 400px;
+      /* border:3px solid rgb(0, 0, 0); */
+      position: relative;
+      left: 50px;
+      top: 150px;
+
+      border-radius: 20px;
+      z-index: 2;
+      backdrop-filter: blur(2px);
+      overflow: hidden;
+    }
+
+    .tresc_promocja h1 {
+      color: rgb(240, 238, 238);
+      font-size: 6rem;
+      letter-spacing: 10px;
+      transform: scaleY(2);
+      text-align: center;
+      filter: drop-shadow(0 0 30px black);
+      animation: litery 1s linear both;
+      margin-top: 50px;
+    }
+    .tresc_promocja p {
+      color: rgb(250, 255, 116);
+      font-size: 3rem;
+      transform: scaleX(0.8);
+      text-align: center;
+      margin-top: -20px;
+      text-shadow: 4px 4px 10px rgb(0, 0, 0), -4px -4px 10px rgb(0, 0, 0);
+      font-family: "italianno";
+      font-weight: 600;
+      letter-spacing: 3px;
+      animation: fadein 1s 1s linear both;
+    }
+
+    .tresc_promocja button {
+      position: relative;
+      left: 50%;
+      top: 20%;
+      transform: translate(-50%, -50%);
+      width: 140px;
+      height: 50px;
+      border-radius: 25px;
+      background-color: rgba(250, 255, 116, 0.553);
+      font-size: 1.2rem;
+      color: rgb(0, 0, 0);
+      backdrop-filter: blur(15px);
+      animation: rozciaganie 1s linear both, pulse 1s infinite;
+    }
+    /* -------------------------------------o nas----------------------------------- */
+    #onas {
+      width: 100%;
+      height: 100%;
+
+      background-color: rgb(35, 35, 35);
+      display: flex;
+      position: relative;
+      z-index: -1;
+    }
+
+    .zdjecie {
+      position: relative;
+      z-index: 1;
+      width: 70%;
+      height: 100%;
+      background-color: rgb(75, 74, 74);
+
+      clip-path: polygon(0% 0%, 100% 0%, 75% 100%, 0% 100%);
+      background-image: url("../n4kmobile/img/IMG20250614152140.jpg");
+      background-position: -300px center;
+      background-size: cover;
+    }
+
+    .zdjecie::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(0, 0, 0, 0.466) 100%
+      );
+    }
+
+    .onas_tekst {
+      position: relative;
+      width: 60%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+
+    .onas_tekst h1 {
+      color: rgb(240, 238, 238);
+      font-size: 6rem;
+      letter-spacing: 10px;
+      transform: scaleY(2);
+      text-align: center;
+      filter: drop-shadow(0 0 30px black);
+      animation: litery 1s linear both;
+      margin-right: 100px;
+    }
+
+    .onas_tekst p {
+      width: 600px;
+      margin-top: 100px;
+      margin-right: 100px;
+      color: white;
+      text-align: justify;
+      font-size: 1.2rem;
+      font-weight: 100;
+    }
+
+    /* --------------------------------POKOJE----------------------------------- */
+
+    #pokoje {
+      width: 100%;
+      height: 100%;
+
+      background-color: rgb(210, 207, 207);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-around;
+      position: relative;
+      z-index: -1;
+    }
+
+    .tlo {
+      position: absolute;
+      width: 60%;
+      height: 100%;
+      right: 0;
+      background-color: rgb(75, 74, 74);
+
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 25% 100%);
+      z-index: 0;
+    }
+
+    .item_pokoj {
+      width: calc(100% / 4 + 50px);
+      background-color: aliceblue;
+      height: 500px;
+      /* border: 1px solid white; */
+      margin-top: 100px;
+      display: flex;
+     flex-direction: column;
+
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 25px black;
+      z-index: 2;
+      border-radius: 10px;
+    }
+    .pokoj3,.apartament,.pokoj2 {
+      width: 100%;
+      height: 75%;
+      /* border: 1px solid black; */
+     position: relative;
+      /* margin-top: 30px; */
+    }
+     img {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px 10px 0 0;
+      object-fit: cover;
+      position: absolute;
+      padding: 2px;
+      opacity: 0;
+      transition: 0.3s;
+    }
+img.active{
+  opacity: 1;
+}
+     .next, .prev {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      font-size: 3rem;
+      font-weight: 700;
+      border: 1px solid white;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.555);
+      color: white;
+    }
+     .next {
+      right: 0;
+    }
+     .prev {
+      left: 0;
+    }
+
+    .next:hover, .prev:hover{
+      color:black;
+     } 
+
+    .dots{
+      width: 100%;
+      height: 10px;
+     
+      position: absolute;
+      bottom:10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap:10px;
+      
+
+    }
+    .dots .dot{
+      width: 10px;
+      height: 10px;
+      background-color: white;
+      border-radius:50%;
+      border:1px solid black;
+    }
+    .pokoj_opis {
+      height: 300px;
+      width: 90%;
+
+      position: absolute;
+
+      transition: 0.2s linear;
+      border-radius: 10px 10px 0 0;
+      bottom: -200px;
+      background-color: rgba(255, 255, 255, 0.542);
+      backdrop-filter: blur(5px);
+    }
+    .pokoj_opis:hover {
+      bottom: 0;
+    }
+    .pokoj_opis h1 {
+      text-align: center;
+      letter-spacing: 2px;
+      font-weight: 100;
+      font-size: 1.5rem;
+    }
+    .pokoj_opis h1 span {
+      font-weight: 500;
+      font-size: 2rem;
+    }
+
+    .pokoj_opis h2 {
+      text-align: center;
+      letter-spacing: 2px;
+      margin-top: 10px;
+      border-bottom: 1px solid black;
+    }
+    .pokoj_opis p {
+      text-align: center;
+      font-weight: 100;
+      margin: 50px 20px 0 20px;
+    }
+
+    /* button {
+      width: 140px;
+      font-size: 1.2rem;
+
+      position: relative;
+      left: 50%;
+      top: 20px;
+      transform: translateX(-50%);
+      border-radius: 10px;
+      background-color: transparent;
+    } */
+
+    /* -----------------------------------------REGULAMIN--------------------------------------------------- */
+
+    #regulamin {
+      width: 100%;
+      height: 100%;
+
+      background-color: rgb(120, 0, 0);
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      position: relative;
+      z-index: -1;
+    }
+
+    .tlo1 {
+      position: absolute;
+      width: 60%;
+      height: 100%;
+      right: 0;
+      background-color: rgb(75, 74, 74);
+
+      clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+      z-index: 0;
+    }
+    .regulamin_tekst {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 2;
+    }
+    .regulamin_tekst h1 {
+      color: rgb(240, 238, 238);
+      font-size: 5rem;
+      letter-spacing: 10px;
+      transform: scaleY(2);
+      text-align: center;
+      filter: drop-shadow(0 0 30px black);
+      animation: litery 1s linear both;
+      margin-top: 100px;
+      margin-bottom: 50px;
+    }
+
+    .regulamin_tekst p {
+      color: rgb(2, 253, 90);
+      text-align: justify;
+      font-size: 1.2rem;
+      font-weight: 100;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      text-align: justify;
+    }
+    .regulamin_tekst li {
+      color: white;
+      text-shadow: 0 0 15px black;
+      font-size: 1.1rem;
+      font-weight: 100;
+      margin-top: 5px;
+    }
+
+    /* ----------------------------------------KONTAKT-------------------------------------- */
+    #kontakt {
+      width: 100%;
+      height: 100%;
+
+      background-color: rgb(35, 35, 35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: -1;
+    }
+
+    .kontener {
+      width: 80%;
+      height: 80%;
+      background-color: rgb(213, 202, 202);
+      margin-top: 100px;
+      display: flex;
+    }
+    .kontener_zdjecie {
+      width: 50%;
+      height: 100%;
+    }
+    .kontener_zdjecie img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      
+    }
+    .kontener_kontakt {
+      width: 300px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: rgb(255, 255, 255);
+      border: 2px solid black;
+    }
+
+    .kontener_kontakt h1 {
+      height: 50%;
+      color: black;
+      font-size: 2rem;
+      font-weight: 300;
+      text-shadow: 0 0 20px rgba(0, 0, 0, 0.545);
+    }
+    .kontener_kontakt p {
+      margin-bottom: 150px;
+    }
+    .kontener_kontakt h2 {
+      position: absolute;
+      top: 300px;
+    }
+    .kontener_kontakt img {
+      width: 300px;
+      height: 50%;
+      object-fit: cover;
+      padding: 5px;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+    /* ---------------------------ANIMACJE---------------------------------- */
+    @keyframes litery {
+      from {
+        letter-spacing: -40px;
+        color: rgba(255, 255, 255, 0);
+      }
+      to {
+        letter-spacing: 10px;
+        color: white;
+      }
+    }
+    @keyframes fadein {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    @keyframes rozciaganie {
+      0% {
+        width: 0px;
+        left: -100px;
+      }
+      50% {
+        left: 0;
+        width: 300px;
+      }
+      100% {
+        left: 40%;
+      }
+    }
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+  <body>
+    <div class="kontener_glowny">
+      <div class="pasek_gora">
+        <div class="logo">
+          NASZE&nbsp; <span><h1>4</h1></span> KĄTY
+        </div>
+        <ul>
+          <li><a class="active" href="#">HOME</a></li>
+          <li><a href="#onas">O NAS</a></li>
+          <li><a href="#pokoje">POKOJE</a></li>
+          <li><a href="#regulamin">REGULAMIN</a></li>
+          <li><a href="#kontakt">KONTAKT</a></li>
+        </ul>
+      </div>
+      <div class="tresc_promocja">
+        <h1>NASZE 4 KĄTY</h1>
+        <p>Mały Pensjonat, Wielkie Chwile nad Bałtykiem.</p>
+        <a href="#onas"><button>o NAS</button></a>
+      </div>
+    </div>
+
+    <section id="onas">
+      <div class="zdjecie"></div>
+      <div class="onas_tekst">
+        <h1>O NAS</h1>
+        <p>
+          Serdecznie zapraszamy Państwa do pięknej, malutkiej i cichej
+          miejscowości Junoszyno leżącej miedzy Jantarem a Stegną. Nasze pokoje
+          gościnne zlokalizowane są 200 m od lasu sosnowego i ok. 1700 m od
+          morza. Do plaży dojście jest przez las ok 30 min drogi. Ogromnym
+          walorem Junoszyna jest niewielka odległość od portu Jantar ok 3 km i
+          Stegna ok 5 km. Do Gdańska dzieli nas ok 50 km, Krynicy Morskiej 25km,
+          a Malborka 40km. Do Państwa dyspozycji oddajemy jeden pokój 1-2 os.,
+          jeden pokój 3-4 os. z łazienkami, TV i wspólnym aneksem kuchennym oraz
+          jeden apartament składający się z 2 pokoi i łazienki: pokoju dziennego
+          z aneksem kuchennym oraz sypialni.
+        </p>
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------------------------------- -->
+
+    <section id="pokoje">
+      <div class="tlo"></div>
+
+      <div class="item_pokoj">
+        <div class="apartament">
+          <img class="active" src="../n4kmobile/img/apartament1.jpg" alt="" />
+          <img src="../n4kmobile/img/IMG20250614152140.jpg" alt="">
+          <img src="../n4kmobile/img/IMG20250614152213.jpg" alt="">
+          <img src="../n4kmobile/img/IMG20250614152438.jpg" alt="">
+          <img src="../n4kmobile/img/IMG20250614152434.jpg" alt="">
+
+          <button class="next">&gt</button>
+          <button class="prev">&lt</button>
+
+            <div class="dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+        <div class="pokoj_opis">
+          <h1>cena za pokój <span>500 zł</span></h1>
+          <h2>APARTAMENT</h2>
+          <p>
+            Apartament 2 pokojowy słada się z dwóch części: dziennej (salon z
+            aneksem kuchennym) i sypialnej oraz łązienki. Przeznaczony jest dla
+            max 5 osób. Idealny dla rodzin z dziećmi.
+          </p>
+          <button>SZCZEGÓŁY</button>
+        </div>
+      </div>
+
+      <div class="item_pokoj">
+        <div class="pokoj2">
+          <img class="active" src="../n4kmobile/img/pokoj3osobowy1.jpg" alt="" />
+           <img src="../n4kmobile/img/IMG20250614152140.jpg" alt="">
+          <img src="../n4kmobile/img/IMG20250614152213.jpg" alt="">
+          <img src="../n4kmobile/img/IMG20250614152438.jpg" alt="">
+          <img src="../n4kmobile/img/IMG20250614152434.jpg" alt="">
+
+           <button class="next">&gt</button>
+          <button class="prev">&lt</button>
+
+            <div class="dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+        <div class="pokoj_opis">
+          <h1>cena za pokój <span>500 zł</span></h1>
+          <h2>POKÓJ 3 OSOBOWY</h2>
+          <p>
+            Apartament 2 pokojowy słada się z dwóch części: dziennej (salon z
+            aneksem kuchennym) i sypialnej oraz łązienki. Przeznaczony jest dla
+            max 5 osób. Idealny dla rodzin z dziećmi.
+          </p>
+          <button>SZCZEGÓŁY</button>
+        </div>
+      </div>
+      <div class="item_pokoj">
+        <div class="pokoj3">
+          <img class="active" src="../n4kmobile/img/pokoj2osobowy1.jpg" alt="" />
+           <img src="../n4kmobile/img/IMG20250614152140.jpg" alt="">
+          <img src="../n4kmobile/img/IMG20250614152213.jpg" alt="">
+          <img src="../n4kmobile/img/IMG20250614152438.jpg" alt="">
+          <img src="../n4kmobile/img/IMG20250614152434.jpg" alt="">
+           <button class="next">&gt</button>
+          <button class="prev">&lt</button>
+
+            <div class="dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+        <div class="pokoj_opis">
+          <h1>cena za pokój <span>500 zł</span></h1>
+          <h2>POKÓJ 2 OSOBOWY</h2>
+          <p>
+            Apartament 2 pokojowy słada się z dwóch części: dziennej (salon z
+            aneksem kuchennym) i sypialnej oraz łązienki. Przeznaczony jest dla
+            max 5 osób. Idealny dla rodzin z dziećmi.
+          </p>
+          <button>SZCZEGÓŁY</button>
+        </div>
+      </div>
+    </section>
+    <!-- ----------------------------------regulamin------------------------------------------------------------ -->
+
+    <section id="regulamin">
+      <div class="tlo1"></div>
+      <div class="regulamin_tekst">
+        <h1>REGULAMIN</h1>
+        <p>Regulamin rezerwacji Pokoi Gościnnych NASZE 4 KĄTY w Junoszynie:</p>
+        <ol>
+          <li>
+            Rezerwacje pokoi gościnnych dokonywane są telefonicznie pod nr:
+            603-421-827
+          </li>
+          <li>
+            Rezerwacja winna być potwierdzona zadatkiem odpowiadającemu co
+            najmniej 3 dobom hotelowym. Pozostałą część należności za pobyt
+            należy uregulować przy dokonywaniu zameldowania (tj. w dniu
+            przyjazdu)
+          </li>
+          <li>
+            Zadatek dotyczy tylko określonego w rezerwacji terminu i nie jest
+            przenoszony na inne rezerwacje.
+          </li>
+          <li>
+            Przyjazd gościa po terminie nie zwalnia z opłat za cały pobyt.
+          </li>
+          <li>
+            W przypadku wcześniejszego wyjazdu gościa, należność za cały pobyt
+            nie ulega zmianie.
+          </li>
+          <li>
+            W przypadku przyjazdu do kwatery mniejszej ilości osób, niż ustalono
+            wcześniej przy dokonywaniu rezerwacji cena noclegów nie będzie
+            obniżona.
+          </li>
+          <li>
+            W przypadku przyjazdu do kwatery większej ilości osób, niż ustalono
+            wcześniej obowiązuje dopłata za dodatkowe osoby wg. cennika.
+          </li>
+          <li>Prosimy o wpisywanie dokładnej daty pobytu w treści przelewu.</li>
+        </ol>
+        <p>
+          Powyższy regulamin jest umową między stronami. Gość zgadza się z
+          warunkami umowy w chwili wpłacenia zadatku lub w momencie zapłaty na
+          miejscu całości należności, jeśli zadatek nie był wymagany.
+        </p>
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------KONTAKT--------------------------------------------------------- -->
+    <section id="kontakt">
+      <div class="kontener">
+        <div class="kontener_kontakt">
+          <h1>KONTAKT</h1>
+          <p>
+            AGNIESZKA SALCZYŃSKA<br />
+            82-103 Stegna<br />
+            JUNOSZYNO SZKOLNA 4<br />
+          </p>
+          <h2>TEL. 603-421-827</h2>
+
+          <img src="../n4kmobile/img/IMG20250614152145.jpg" alt="" />
+        </div>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2326.5103386169226!2d19.072680917715125!3d54.33028748921671!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spl!2spl!4v1750246093538!5m2!1spl!2spl"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </section>
+    <!-- <h1>NASZE 4 KĄTY: Mały Pensjonat, Wielkie Chwile nad Bałtykiem.</h1> -->
+  </body>
+
+
+  <script>
+// Slideshow logic for all sliders
+document.querySelectorAll('.item_pokoj').forEach((pokoj, pokojIdx) => {
+  const images = pokoj.querySelectorAll('.apartament img, .pokoj2 img, .pokoj3 img');
+  const nextBtn = pokoj.querySelector('.next');
+  const prevBtn = pokoj.querySelector('.prev');
+  const dots = pokoj.querySelectorAll('.dot');
+  let index = 0;
+
+  function showSlide(i) {
+    images.forEach((img, idx) => {
+      img.classList.toggle('active', idx === i);
+    });
+    dots.forEach((dot, idx) => {
+      dot.style.backgroundColor = idx === i ? 'yellowgreen' : 'white';
+    });
+  }
+
+  if (nextBtn && prevBtn && images.length > 1) {
+    nextBtn.addEventListener('click', () => {
+      index = (index + 1) % images.length;
+      showSlide(index);
+    });
+    prevBtn.addEventListener('click', () => {
+      index = (index - 1 + images.length) % images.length;
+      showSlide(index);
+    });
+    dots.forEach((dot, dotIdx) => {
+      dot.addEventListener('click', () => {
+        index = dotIdx;
+        showSlide(index);
+      });
+    });
+    showSlide(index);
+  }
+});
+
+
+console.log(zdjecia);
+  </script>
+</html>
