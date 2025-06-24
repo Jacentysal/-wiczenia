@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      width: 100vw;
+      height: 100vh;
+      background-color: rgb(35, 35, 35);
+    }
+
+    .kontener_glowny {
+      width: 800px;
+      height: 400px;
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid white;
+    }
+
+    .slajdy {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 6rem;
+      color: white;
+      opacity: 0;
+      transition: 0.5s;
+      pointer-events: none;
+    }
+    .slajdy.active {
+      opacity: 1;
+    }
+    .slajdy img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+    .prev-btn,
+    .next-btn {
+      font-size: 24px;
+      background-color: blue;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+    .prev-btn {
+      left: -30px;
+    }
+    .next-btn {
+      right: -30px;
+    }
+    .dots {
+      width: 200px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid white;
+      gap: 10px;
+      position: absolute;
+      bottom: 0px;
+    }
+    .dot {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: white;
+    }
+    .dot.active {
+      background-color: red;
+    }
+  </style>
+  <body>
+    <div class="kontener_glowny">
+      <div class="slajdy active">
+        <img
+          src="https://images.unsplash.com/photo-1734983235410-cbbc5f5fcdaf?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt=""
+        />
+      </div>
+      <div class="slajdy">
+        <img
+          src="https://plus.unsplash.com/premium_photo-1749155619360-b116cc93852b?q=80&w=1355&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt=""
+        />
+      </div>
+      <div class="slajdy">
+        <img
+          src="https://images.unsplash.com/photo-1750126833705-ba98013f16f3?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt=""
+        />
+      </div>
+      <div class="slajdy">
+        <img
+          src="https://images.unsplash.com/photo-1749731630653-d9b3f00573ed?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt=""
+        />
+      </div>
+      <div class="slajdy">
+        <img
+          src="https://plus.unsplash.com/premium_photo-1724824053144-57ac626583d9?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt=""
+        />
+      </div>
+
+      <button class="prev-btn">&#10094;</button>
+      <button class="next-btn">&#10095;</button>
+
+      <div class="dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    const slajdy = document.querySelectorAll(".slajdy");
+    const prev = document.querySelector(".prev-btn");
+    const next = document.querySelector(".next-btn");
+    const dot = document.querySelectorAll(".dot");
+
+    let aktualnySlajd = 0;
+
+    function pokazSlajd(index) {
+      slajdy.forEach((slajd) => slajd.classList.remove("active"));
+      dot.forEach((dots) => dots.classList.remove("active"));
+
+      slajdy[index].classList.add("active");
+      dot[index].classList.add("active");
+
+      aktualnySlajd = index;
+    }
+
+    function nastepnySlajd() {
+      aktualnySlajd = (aktualnySlajd + 1) % slajdy.length;
+      pokazSlajd(aktualnySlajd);
+    }
+
+    function poprzedniSlajd() {
+      aktualnySlajd = (aktualnySlajd - 1 + slajdy.length) % slajdy.length;
+      pokazSlajd(aktualnySlajd);
+    }
+
+    next.addEventListener("click", nastepnySlajd);
+    prev.addEventListener("click", poprzedniSlajd);
+
+    dot.forEach((dots, index) => {
+      dots.addEventListener("click", () => {
+        pokazSlajd(index);
+      });
+    });
+// setInterval(nastepnySlajd, 3000);
+
+  </script>
+</html>
