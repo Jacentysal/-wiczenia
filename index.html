@@ -129,11 +129,11 @@
       /* border:3px solid rgb(0, 0, 0); */
       position: relative;
       left: 50px;
-      top: 150px;
+      top: 200px;
 
       border-radius: 20px;
       z-index: 2;
-      backdrop-filter: blur(2px);
+      /* backdrop-filter: blur(2px); */
       overflow: hidden;
     }
 
@@ -143,7 +143,7 @@
       letter-spacing: 10px;
       transform: scaleY(2);
       text-align: center;
-      filter: drop-shadow(0 0 30px black);
+      filter: drop-shadow(0 0 5px black);
       animation: litery 1s linear both;
       margin-top: 50px;
     }
@@ -269,7 +269,15 @@
       clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 25% 100%);
       z-index: 0;
     }
-
+.szczegoly_pokoju{
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 255);
+  z-index: 5;
+}
     .item_pokoj {
       width: calc(100% / 4 + 50px);
       background-color: aliceblue;
@@ -423,6 +431,119 @@ img.active{
       border-radius: 10px;
       background-color: transparent;
     }
+    /* ----------------------------------------------------------------------------------------------------------- */
+
+
+      #apartament {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background-color: rgb(35, 35, 35);
+      z-index: 0;
+    }
+
+    .apartament_zdjecia {
+      width: 60%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      
+    }
+     #apartament  img {
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+      opacity: 1;
+      position: relative;
+      object-fit: cover;
+     
+      
+    }
+    .apartament_zdjecie_tlo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      padding: 20px;
+      border:3px solid white;
+z-index: -1;
+      width: 80%;
+      height: 80%;
+     
+    }
+    .apartament_zdjecie_tlo::after {
+      content: "";
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      width: 10%;
+      height: 80%;
+      background-image: url("https://plus.unsplash.com/premium_photo-1733342588963-2ac6a92a8584?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8eiVDNSU4Mm90byUyMHRleHR1cmV8ZW58MHx8MHx8fDA%3D");
+
+      background-size: cover;
+      z-index: -1;
+    }
+
+    .apartament_zdjecie_tlo::before {
+      content: "";
+
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      width: 10%;
+      height: 80%;
+      background-image: url("https://plus.unsplash.com/premium_photo-1733342588963-2ac6a92a8584?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8eiVDNSU4Mm90byUyMHRleHR1cmV8ZW58MHx8MHx8fDA%3D");
+
+      background-size: cover;
+      z-index: -1;
+    }
+    .apartament_opis {
+      width: 40%;
+      height: 100%;
+
+      display: flex;
+      flex-direction: column;
+
+      align-items: center;
+      justify-content: center;
+    }
+    .apartament_opis h1 {
+      font-size: 4rem;
+      color: white;
+      background-image: url("https://plus.unsplash.com/premium_photo-1733342588963-2ac6a92a8584?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8eiVDNSU4Mm90byUyMHRleHR1cmV8ZW58MHx8MHx8fDA%3D");
+
+      background-size: cover;
+
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 30px rgba(175, 175, 20, 0.115);
+      margin-bottom: 50px;
+    }
+
+    .apartament_opis p {
+      width: 90%;
+      font-size: 1.2rem;
+      color: rgb(191, 191, 191);
+      text-align: justify;
+      font-weight: 100;
+      margin-right: 20px;
+
+      border-bottom: 2px solid rgba(137, 137, 137, 0.59);
+    }
+    .apartament_opis h2 {
+      margin-top: 50px;
+      color: white;
+      font-size: 2rem;
+    }
 
     /* -----------------------------------------REGULAMIN--------------------------------------------------- */
 
@@ -553,6 +674,11 @@ img.active{
       width: 100%;
       height: 100%;
     }
+
+
+/* -------------------------------------------------------------------------------------------------------------------- */
+
+
     /* ---------------------------ANIMACJE---------------------------------- */
     @keyframes litery {
       from {
@@ -600,13 +726,13 @@ img.active{
     @keyframes back {
      
        0%{ background-image: url('../n4kmobile/img/IMG20250614152434.jpg'); }
-        15%{ background-image: url('../n4kmobile/img/IMG20250614152434.jpg'); }
+        20%{ background-image: url('../n4kmobile/img/IMG20250614152434.jpg'); }
       25%{background-image: url('../n4kmobile/img/IMG20250614152213.jpg'); }
-      40%{background-image: url('../n4kmobile/img/IMG20250614152213.jpg'); }
+      45%{background-image: url('../n4kmobile/img/IMG20250614152213.jpg'); }
       50%{background-image: url('../n4kmobile/img/IMG20250614152140.jpg'); }
-      65%{background-image: url('../n4kmobile/img/IMG20250614152140.jpg'); }
+      70%{background-image: url('../n4kmobile/img/IMG20250614152140.jpg'); }
       75%{background-image: url('../n4kmobile/img/IMG20250614152759.jpg'); }
-      90%{background-image: url('../n4kmobile/img/IMG20250614152759.jpg'); }
+      100%{background-image: url('../n4kmobile/img/IMG20250614152759.jpg'); }
      
       
     }
@@ -628,7 +754,7 @@ img.active{
       <div class="tresc_promocja">
         <h1>NASZE 4 KĄTY</h1>
         <p>Mały Pensjonat, Wielkie Chwile nad Bałtykiem.</p>
-        <a href="#onas"><button>o NAS</button></a>
+        <!-- <a href="#onas"><button>o NAS</button></a> -->
       </div>
     </div>
 
@@ -655,6 +781,10 @@ img.active{
 
     <section id="pokoje">
       <div class="tlo"></div>
+
+
+
+
 
       <div class="item_pokoj">
         <div class="apartament">
@@ -763,6 +893,36 @@ img.active{
         </div>
       </div>
     </section>
+
+    <!-- ------------------------------------------------------------------------------------------------------------------ -->
+
+    <section id="apartament">
+      <div class="apartament_zdjecia">
+        <div class="apartament_zdjecie_tlo">
+            <img
+            src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="apartament_opis">
+        <h1>APARTAMENT</h1>
+
+        <p>
+          Apartament 2 pokojowy słada się z dwóch części: dziennej (salon z
+          aneksem kuchennym) i sypialnej oraz łązienki. Przeznaczony jest dla
+          max 5 osób. Idealny dla rodzin z dziećmi. W części sypialnej są 2
+          podwójne łóżka, natomiast w części dziennej sofa z funkcją do spania.
+          Apartament posiada swój prwyatny taras, na który wychodzi się z obu
+          pokoi. Jest idealnym przedłużeniem salonu, gdyż można na nim zjeść
+          posiłek czy wypić kawę. Z tarasu jest zejście na trawnik, gdzie
+          znajduje się plac zabaw dla dzieci. Aneks kuchenny wyposażony jest w
+          kuchenkę indukcyjną, czajnik bezprzewodowy, lodówkę oraz kuchenkę
+          mikrofalową. Zaopatrzony jest także w niezbędne naczynia.
+        </p>
+        <h2>CENA ZA APARTAMENT: 500 ZŁ</h2>
+      </div>
+    </section>
     <!-- ----------------------------------regulamin------------------------------------------------------------ -->
 
     <section id="regulamin">
@@ -836,8 +996,17 @@ img.active{
         ></iframe>
       </div>
     </section>
+
+    
     <!-- <h1>NASZE 4 KĄTY: Mały Pensjonat, Wielkie Chwile nad Bałtykiem.</h1> -->
   </body>
+
+
+
+
+
+
+
 
 
   <script>
@@ -878,6 +1047,5 @@ document.querySelectorAll('.item_pokoj').forEach((pokoj, pokojIdx) => {
 });
 
 
-console.log(zdjecia);
   </script>
 </html>
