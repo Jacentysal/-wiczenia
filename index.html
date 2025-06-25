@@ -13,6 +13,7 @@
       box-sizing: border-box;
       font-family: "Oswald", sans-serif;
       scroll-behavior: smooth;
+      
     }
 
     body {
@@ -250,13 +251,13 @@
       width: 100%;
       height: 100%;
 
-      background-color: rgb(210, 207, 207);
+      background-color: rgb(35, 35, 35);
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-around;
       position: relative;
-      z-index: -1;
+     z-index: -1;
     }
 
     .tlo {
@@ -264,9 +265,9 @@
       width: 60%;
       height: 100%;
       right: 0;
-      background-color: rgb(75, 74, 74);
+      background-color: rgb(0, 0, 0);
 
-      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 25% 100%);
+      /* clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 25% 100%); */
       z-index: 0;
     }
 .szczegoly_pokoju{
@@ -275,15 +276,17 @@
   left:0;
   width: 100%;
   height: 100%;
-  background-color: rgb(0, 0, 255);
+ 
   z-index: 5;
 }
     .item_pokoj {
       width: calc(100% / 4 + 50px);
-      background-color: aliceblue;
+     
       height: 500px;
       /* border: 1px solid white; */
       margin-top: 100px;
+
+      border:1px solid grey;
       display: flex;
      flex-direction: column;
 
@@ -292,19 +295,19 @@
       overflow: hidden;
       box-shadow: 0 0 25px black;
       z-index: 2;
-      border-radius: 10px;
+      
     }
     .pokoj3,.apartament,.pokoj2 {
-      width: 100%;
+      width: 95%;
       height: 75%;
       /* border: 1px solid black; */
      position: relative;
-      /* margin-top: 30px; */
+      margin-top: 15px; 
     }
      img {
       width: 100%;
       height: 100%;
-      border-radius: 10px 10px 0 0;
+      
       object-fit: cover;
       position: absolute;
       padding: 2px;
@@ -370,7 +373,7 @@ img.active{
       transition: 0.2s linear;
       border-radius: 10px 10px 0 0;
       bottom: -200px;
-      background-color: rgba(255, 255, 255, 0.542);
+      background-color: rgba(35, 35, 35, 0.393);
       backdrop-filter: blur(5px);
       /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.642); */
     }
@@ -378,23 +381,27 @@ img.active{
       bottom: 0;
     }
     .pokoj_opis h1 {
+      color:white;
       text-align: center;
       letter-spacing: 2px;
       font-weight: 100;
       font-size: 1.5rem;
     }
     .pokoj_opis h1 span {
+      color:white;
       font-weight: 500;
       font-size: 2rem;
     }
 
     .pokoj_opis h2 {
+      color:white;
       text-align: center;
       letter-spacing: 2px;
       margin-top: 10px;
       border-bottom: 1px solid black;
     }
     .pokoj_opis p {
+      color:white;
       text-align: center;
       font-weight: 100;
       margin: 50px 20px 0 20px;
@@ -443,7 +450,7 @@ img.active{
       justify-content: center;
       position: relative;
       background-color: rgb(35, 35, 35);
-      z-index: 0;
+      z-index: -1;
     }
 
     .apartament_zdjecia {
@@ -523,7 +530,7 @@ z-index: -1;
 
       background-size: cover;
 
-      -webkit-background-clip: text;
+       background-clip: text;
       -webkit-text-fill-color: transparent;
       text-shadow: 0 0 30px rgba(175, 175, 20, 0.115);
       margin-bottom: 50px;
@@ -780,7 +787,7 @@ z-index: -1;
     <!-- ------------------------------------------------------------------------------------- -->
 
     <section id="pokoje">
-      <div class="tlo"></div>
+      <!-- <div class="tlo"></div> -->
 
 
 
@@ -818,7 +825,7 @@ z-index: -1;
             aneksem kuchennym) i sypialnej oraz łązienki. Przeznaczony jest dla
             max 5 osób. Idealny dla rodzin z dziećmi.
           </p>
-          <button class="szczegoly">SZCZEGÓŁY</button>
+          <button class="szczegoly"><a href="#apartament">SZCZEGÓŁY</a></button>
         </div>
       </div>
 
@@ -891,7 +898,7 @@ z-index: -1;
           </p>
           <button class="szczegoly">SZCZEGÓŁY</button>
         </div>
-      </div>
+      
     </section>
 
     <!-- ------------------------------------------------------------------------------------------------------------------ -->
